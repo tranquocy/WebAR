@@ -1,0 +1,57 @@
+<head>
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="drag-drop.js"></script>
+  <script src="gesture-detector.js"></script>
+  <script src="gesture-handler.js"></script>
+
+  <script>
+    registerAframeClickDragComponent(window.AFRAME);
+  </script>
+</head>
+
+<body>
+  <!-- <div id="model1"></div>
+
+  <div id="model2"></div> -->
+  <a-scene
+    arjs
+    embedded
+    renderer="logarithmicDepthBuffer: true;"
+    vr-mode-ui="enabled: false"
+    gesture-detector
+    id="scene"
+  >
+    <a-assets>
+      <a-asset-item
+        id="model"
+        src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
+      ></a-asset-item>
+    </a-assets>
+    <a-entity
+      click-drag
+      gltf-model="#model"
+      scale="0.1 0.1 0.1"
+      position="0 0 0"
+      id="bowser-model"
+      gltf-model="#model"
+      class="clickable"
+      gesture-handler
+    >
+    </a-entity>
+    <a-cylinder
+      click-drag
+      position="1 0.75 1"
+      radius="0.5"
+      height="1.5"
+      color="#FFC65D"
+    ></a-cylinder>
+    <a-plane rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <a-entity position="0 0 3.8">
+      <a-camera look-controls-enabled="false" keyboard-controls="mode: fps"> </a-camera>
+    </a-entity>
+  </a-scene>
+  <!-- <script src="https://unpkg.com/three@0.87.1/build/three.js"></script>
+  <script src="https://unpkg.com/three@0.87.1/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://unpkg.com/three@0.87.1/examples/js/loaders/GLTFLoader.js"></script> -->
+  <!-- <script src="three.js"></script> -->
+</body>
